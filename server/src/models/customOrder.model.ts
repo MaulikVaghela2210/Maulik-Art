@@ -1,29 +1,28 @@
-import mongoose, { Schema, Document } from "mongoose";
+import mongoose from "mongoose";
 
-export interface ICustomOrder extends Document {
-  user: mongoose.Types.ObjectId;
-  category: string;
-  details: object;
-  referenceImages: string[];
-  status: string;
-  priceQuote?: number;
-  adminResponse?: string;
-}
+const CustomOrderSchema = new mongoose.Schema(
+{
+name: String,
+email: String,
+phone: String,
+category: String,
+description: String,
 
-const CustomOrderSchema: Schema = new Schema(
-  {
-    user: { type: Schema.Types.ObjectId, ref: "User" },
-    category: { type: String, required: true },
-    details: { type: Object },
-    referenceImages: [{ type: String }],
-    status: { type: String, default: "pending" },
-    priceQuote: { type: Number },
-    adminResponse: { type: String },
-  },
-  { timestamps: true }
+width: Number,
+height: Number,
+
+referenceImages: [String],
+
+status: {
+type: String,
+default: "Pending",
+},
+
+},
+{ timestamps: true }
 );
 
-export default mongoose.model<ICustomOrder>(
-  "CustomOrder",
-  CustomOrderSchema
+export default mongoose.model(
+"CustomOrder",
+CustomOrderSchema
 );

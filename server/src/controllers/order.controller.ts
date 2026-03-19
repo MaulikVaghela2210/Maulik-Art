@@ -1,56 +1,72 @@
-import { Request, Response, NextFunction } from "express";
-import Cart from "../models/cart.model";
+import { Request, Response } from "express";
 import Order from "../models/order.model";
 
-export const createOrder = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-): Promise<void> => {
+export const createOrder = async (req: Request, res: Response) => {
+
   try {
-    const { shippingAddress } = req.body;
 
-    const userId = (req as any).user._id;
+    const order = new Order(req.body);
 
-    const cartItems = await Cart.find({ user: userId }).populate("artwork");
+    const savedOrder = await order.save();
 
-    if (!cartItems.length) {
-      res.status(400).json({
-        success: false,
-        message: "Cart is empty",
-      });
-      return;
-    }
-
-    let totalPrice = 0;
-
-    const orderItems = cartItems.map((item: any) => {
-      totalPrice += item.artwork.price * item.quantity;
-
-      return {
-        artwork: item.artwork._id,
-        quantity: item.quantity,
-        price: item.artwork.price,
-      };
-    });
-
-    const order = await Order.create({
-      user: userId,
-      items: orderItems,
-      totalPrice,
-      shippingAddress,
-    });
-
-    // Clear cart after order
-    await Cart.deleteMany({ user: userId });
-
-    res.status(201).json({
-      success: true,
-      message: "Order placed successfully",
-      order,
-    });
+    res.status(201).json(savedOrder);
 
   } catch (error) {
-    next(error);
+
+    res.status(500).json({ message: "Order failed" });
+
   }
+
+};
+
+export const getOrders = async (req: Request, res: Response) => {
+
+  try {
+
+    const orders = await Order.find().sort({ createdAt: -1 });
+
+    res.json(orders);
+
+  } catch (error) {
+
+    res.status(500).json({ message: "Error fetching orders" });
+
+  }
+
+};
+
+export const deleteOrder = async (req: Request, res: Response) => {
+
+  try {
+
+    await Order.findByIdAndDelete(req.params.id);
+
+    res.json({ message: "Order deleted" });
+
+  } catch (error) {
+
+    res.status(500).json({ message: "Delete failed" });
+
+  }
+
+};
+
+export const updateStatus = async (req: Request, res: Response) => {
+
+  try {
+
+    const order = await Order.findByIdAndUpdate(
+      req.params.id,
+      { status: req.body.status },
+      { new: true }
+    );
+
+    res.json(order);
+
+  } catch (error) {
+
+    res.status(500).json({ message: "Status update failed" });
+
+  }
+
 };

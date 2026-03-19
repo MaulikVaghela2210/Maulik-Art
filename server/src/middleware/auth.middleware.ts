@@ -55,3 +55,14 @@ export const adminOnly = (
     return res.status(403).json({ message: "Admin access only" });
   }
 };
+
+export const admin = (req: any, res: any, next: any) => {
+  if (req.user && req.user.role === "admin") {
+    next();
+  } else {
+    res.status(403).json({
+      success: false,
+      message: "Admin access required",
+    });
+  }
+};

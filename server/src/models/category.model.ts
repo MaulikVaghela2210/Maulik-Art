@@ -12,11 +12,17 @@ const categorySchema = new Schema<ICategory>(
       required: true,
       unique: true,
     },
+
     description: {
       type: String,
     },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 );
 
-export default mongoose.model<ICategory>("Category", categorySchema);
+export default mongoose.model<ICategory>(
+  "Category",
+  categorySchema
+);

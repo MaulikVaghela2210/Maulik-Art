@@ -5,6 +5,8 @@ export interface IUser extends Document {
   email: string;
   password: string;
   role: "user" | "admin";
+  image?: string;
+  phone: string;
 }
 
 const userSchema = new Schema<IUser>(
@@ -13,20 +15,34 @@ const userSchema = new Schema<IUser>(
       type: String,
       required: true,
     },
+
     email: {
       type: String,
       required: true,
       unique: true,
     },
+
     password: {
       type: String,
       required: true,
     },
+
     role: {
       type: String,
       enum: ["user", "admin"],
       default: "user",
     },
+
+    phone: {
+  type: String,
+  default: ""
+},
+
+    image: {
+      type: String,
+      default: "https://i.pravatar.cc/150"
+    }
+
   },
   { timestamps: true }
 );
