@@ -47,7 +47,7 @@ const Profile = () => {
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/users/profile",
+        "http://https://${import.meta.env.VITE_API_URL}/api/users/profile",
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -78,7 +78,7 @@ const Profile = () => {
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/orders",
+        "http://https://${import.meta.env.VITE_API_URL}/api/orders",
         {
           headers:{
             Authorization:`Bearer ${token}`
@@ -106,7 +106,7 @@ const Profile = () => {
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/custom-orders",
+        "http://https://${import.meta.env.VITE_API_URL}/api/custom-orders",
         {
           headers:{
             Authorization:`Bearer ${token}`
@@ -173,7 +173,7 @@ const Profile = () => {
       }
 
       const res = await axios.put(
-        "http://localhost:5000/api/users/profile",
+        "http://https://${import.meta.env.VITE_API_URL}/api/users/profile",
         formData,
         {
           headers: {
@@ -209,7 +209,7 @@ const Profile = () => {
     try {
 
       await axios.put(
-        "http://localhost:5000/api/users/change-password",
+        "http://https://${import.meta.env.VITE_API_URL}/api/users/change-password",
         {
           currentPassword,
           newPassword

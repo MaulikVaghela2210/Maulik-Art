@@ -19,7 +19,7 @@ const Hero = () => {
 
     const fetchSlides = async () => {
 
-      const res = await fetch("http://localhost:5000/api/hero");
+      const res = await fetch("http://https://${import.meta.env.VITE_API_URL}/api/hero");
       const data = await res.json();
 
       setSlides(data);

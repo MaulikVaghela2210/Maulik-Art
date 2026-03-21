@@ -43,7 +43,7 @@ const AdminArtists = () => {
   const fetchArtists = async () => {
 
     const res = await axios.get(
-      "http://localhost:5000/api/artists"
+      "http://https://${import.meta.env.VITE_API_URL}/api/artists"
     );
 
     setArtists(res.data);
@@ -90,14 +90,14 @@ const AdminArtists = () => {
     if (editingId) {
 
       await axios.put(
-        `http://localhost:5000/api/artists/${editingId}`,
+        `http://https://${import.meta.env.VITE_API_URL}/api/artists/${editingId}`,
         formData
       );
 
     } else {
 
       await axios.post(
-        "http://localhost:5000/api/artists",
+        "http://https://${import.meta.env.VITE_API_URL}/api/artists",
         formData
       );
 
@@ -111,7 +111,7 @@ const AdminArtists = () => {
   const deleteArtist = async (id: string) => {
 
     await axios.delete(
-      `http://localhost:5000/api/artists/${id}`
+      `http://https://${import.meta.env.VITE_API_URL}/api/artists/${id}`
     );
 
     fetchArtists();

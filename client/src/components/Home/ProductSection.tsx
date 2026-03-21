@@ -16,7 +16,7 @@ const ProductSection = () => {
   useEffect(() => {
     const fetchLatest = async () => {
       const { data } = await axios.get(
-        "http://localhost:5000/api/artworks"
+        "http://https://${import.meta.env.VITE_API_URL}/api/artworks"
       );
       setProducts(data.slice(0, 4));
     };

@@ -24,7 +24,7 @@ const AdminCustomOrders = () => {
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/custom-orders"
+        "http://https://${import.meta.env.VITE_API_URL}/api/custom-orders"
       );
 
       setOrders(res.data);
@@ -50,7 +50,7 @@ const AdminCustomOrders = () => {
     try {
 
       await axios.delete(
-        `http://localhost:5000/api/custom-orders/${id}`
+        `http://https://${import.meta.env.VITE_API_URL}/api/custom-orders/${id}`
       );
 
       fetchOrders();
@@ -69,7 +69,7 @@ const AdminCustomOrders = () => {
     try {
 
       await axios.put(
-        `http://localhost:5000/api/custom-orders/${id}`,
+        `http://https://${import.meta.env.VITE_API_URL}/api/custom-orders/${id}`,
         { status }
       );
 

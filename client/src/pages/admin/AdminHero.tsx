@@ -25,7 +25,7 @@ const AdminHero = () => {
 
   const fetchSlides = async () => {
 
-    const res = await fetch("http://localhost:5000/api/hero");
+    const res = await fetch("http://https://${import.meta.env.VITE_API_URL}/api/hero");
     const data = await res.json();
 
     setSlides(data);
@@ -64,8 +64,8 @@ const AdminHero = () => {
     }
 
     const url = editingId
-      ? `http://localhost:5000/api/hero/${editingId}`
-      : "http://localhost:5000/api/hero";
+      ? `http://https://${import.meta.env.VITE_API_URL}/api/hero/${editingId}`
+      : "http://https://${import.meta.env.VITE_API_URL}/api/hero";
 
     const method = editingId ? "PUT" : "POST";
 
@@ -92,7 +92,7 @@ const AdminHero = () => {
 
   const deleteSlide = async (id: string) => {
 
-    await fetch(`http://localhost:5000/api/hero/${id}`, {
+    await fetch(`http://https://${import.meta.env.VITE_API_URL}/api/hero/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`

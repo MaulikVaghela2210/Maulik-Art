@@ -16,7 +16,7 @@ const AdminArtworks = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
-  const API = "http://localhost:5000/api/artworks";
+  const API = "http://https://${import.meta.env.VITE_API_URL}/api/artworks";
 
   /* ================= Fetch Artworks ================= */
 

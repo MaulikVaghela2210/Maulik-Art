@@ -24,7 +24,7 @@ const CustomOrder = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       const { data } = await axios.get(
-        "http://localhost:5000/api/categories"
+        "http://https://${import.meta.env.VITE_API_URL}/api/categories"
       );
       setCategories(data);
     };
@@ -70,7 +70,7 @@ const CustomOrder = () => {
       });
 
       await axios.post(
-        "http://localhost:5000/api/custom-orders",
+        "http://https://${import.meta.env.VITE_API_URL}/api/custom-orders",
         data,
         {
           headers: {
