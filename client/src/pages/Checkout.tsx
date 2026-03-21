@@ -58,7 +58,7 @@ const Checkout = () => {
     try {
 
       await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/orders`,
+        "https://maulik-art.onrender.com/api/orders",
         orderData
       );
 

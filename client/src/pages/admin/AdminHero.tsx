@@ -25,7 +25,7 @@ const AdminHero = () => {
 
   const fetchSlides = async () => {
 
-    const res = await fetch("${import.meta.env.VITE_API_URL}/api/hero");
+    const res = await fetch("https://maulik-art.onrender.com/api/hero");
     const data = await res.json();
 
     setSlides(data);
@@ -64,8 +64,8 @@ const AdminHero = () => {
     }
 
     const url = editingId
-      ? `${import.meta.env.VITE_API_URL}/api/hero/${editingId}`
-      : `${import.meta.env.VITE_API_URL}/api/hero`;
+      ? "https://maulik-art.onrender.com/api/hero/${editingId}"
+      : "https://maulik-art.onrender.com/api/hero";
 
     const method = editingId ? "PUT" : "POST";
 
@@ -92,7 +92,7 @@ const AdminHero = () => {
 
   const deleteSlide = async (id: string) => {
 
-    await fetch(`${import.meta.env.VITE_API_URL}/api/hero/${id}`, {
+    await fetch("https://maulik-art.onrender.com/api/hero/${id}", {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`

@@ -23,7 +23,7 @@ const Navbar = () => {
     try {
 
       const res = await axios.get(
-        ${import.meta.env.VITE_API_URL}/api/users/profile",
+        "https://maulik-art.onrender.com/api/users/profile",
         {
           headers: {
             Authorization: `Bearer ${token}`

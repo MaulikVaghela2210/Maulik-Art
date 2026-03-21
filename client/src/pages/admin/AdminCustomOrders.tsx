@@ -24,7 +24,7 @@ const AdminCustomOrders = () => {
     try {
 
       const res = await axios.get(
-        `${import.meta.env.VITE_API_URL}/api/custom-orders`
+        "https://maulik-art.onrender.com/api/custom-orders"
       );
 
       setOrders(res.data);
@@ -50,7 +50,7 @@ const AdminCustomOrders = () => {
     try {
 
       await axios.delete(
-        `${import.meta.env.VITE_API_URL}/api/custom-orders/${id}`
+        "https://maulik-art.onrender.com/api/custom-orders/${id}"
       );
 
       fetchOrders();
@@ -69,7 +69,7 @@ const AdminCustomOrders = () => {
     try {
 
       await axios.put(
-        `${import.meta.env.VITE_API_URL}/api/custom-orders/${id}`,
+        "https://maulik-art.onrender.com/api/custom-orders/${id}",
         { status }
       );
 

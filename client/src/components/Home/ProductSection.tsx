@@ -16,7 +16,7 @@ const ProductSection = () => {
   useEffect(() => {
     const fetchLatest = async () => {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/api/artworks`
+        "https://maulik-art.onrender.com/api/artworks"
       );
       setProducts(data.slice(0, 4));
     };

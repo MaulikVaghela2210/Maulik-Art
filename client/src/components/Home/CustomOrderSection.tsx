@@ -24,7 +24,7 @@ const CustomOrder = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/api/categories`
+        "https://maulik-art.onrender.com/api/categories"
       );
       setCategories(data);
     };
@@ -70,7 +70,7 @@ const CustomOrder = () => {
       });
 
       await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/custom-orders`,
+        "https://maulik-art.onrender.com/api/custom-orders",
         data,
         {
           headers: {

@@ -22,7 +22,7 @@ const GalleryDetails = () => {
   useEffect(() => {
     const fetchArtwork = async () => {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/api/artworks/${id}`
+        "https://maulik-art.onrender.com/api/artworks/${id}"
       );
       setArtwork(data);
     };

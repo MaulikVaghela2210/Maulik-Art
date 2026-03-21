@@ -19,7 +19,7 @@ const Hero = () => {
 
     const fetchSlides = async () => {
 
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/hero`);
+      const res = await fetch("https://maulik-art.onrender.com/api/hero");
       const data = await res.json();
 
       setSlides(data);

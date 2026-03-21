@@ -16,7 +16,7 @@ const AdminContacts = () => {
 
   const fetchContacts = async () => {
 
-    const res = await axios.get("${import.meta.env.VITE_API_URL}/api/contacts");
+    const res = await axios.get("https://maulik-art.onrender.com/api/contacts");
 
     setContacts(res.data);
 
@@ -28,7 +28,7 @@ const AdminContacts = () => {
 
   const deleteContact = async (id: string) => {
 
-    await axios.delete(`${import.meta.env.VITE_API_URL}/api/contacts/${id}`);
+    await axios.delete("https://maulik-art.onrender.com/api/contacts/${id}");
 
     fetchContacts();
 
@@ -39,7 +39,7 @@ const AdminContacts = () => {
     if (!editingContact) return;
 
     await axios.put(
-      `${import.meta.env.VITE_API_URL}/api/contacts/${editingContact._id}`,
+      "https://maulik-art.onrender.com/api/contacts/${editingContact._id}",
       editingContact
     );
 

@@ -15,7 +15,7 @@ const Signup = () => {
     e.preventDefault();
 
     await axios.post(
-      `${import.meta.env.VITE_API_URL}/api/users/register",
+      "https://maulik-art.onrender.com/api/users/register",
       { name,email,password }
     );
 

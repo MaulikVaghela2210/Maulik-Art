@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = `${import.meta.env.VITE_API_URL}/api/services";
+const API = "https://maulik-art.onrender.com/api/services";
 
 export const getServices = async () => {
   return axios.get(API);

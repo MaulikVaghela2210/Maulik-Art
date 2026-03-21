@@ -22,7 +22,7 @@ const AddArtwork = () => {
     const fetchCategories = async () => {
       try {
         const { data } = await axios.get(
-          `${import.meta.env.VITE_API_URL}/api/categories`
+          "https://maulik-art.onrender.com/api/categories"
         );
         setCategories(data);
       } catch (error) {
@@ -51,7 +51,7 @@ const AddArtwork = () => {
       formData.append("image", image);
 
       await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/artworks`,
+        "https://maulik-art.onrender.com/api/artworks",
         formData,
         {
           headers: {

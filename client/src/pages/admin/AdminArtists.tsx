@@ -43,7 +43,7 @@ const AdminArtists = () => {
   const fetchArtists = async () => {
 
     const res = await axios.get(
-      `${import.meta.env.VITE_API_URL}/api/artists`
+      "https://maulik-art.onrender.com/api/artists"
     );
 
     setArtists(res.data);
@@ -90,14 +90,14 @@ const AdminArtists = () => {
     if (editingId) {
 
       await axios.put(
-        `${import.meta.env.VITE_API_URL}/api/artists/${editingId}`,
+        "https://maulik-art.onrender.com/api/artists/${editingId}",
         formData
       );
 
     } else {
 
       await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/artists`,
+        "https://maulik-art.onrender.com/api/artists",
         formData
       );
 
@@ -111,7 +111,7 @@ const AdminArtists = () => {
   const deleteArtist = async (id: string) => {
 
     await axios.delete(
-      `${import.meta.env.VITE_API_URL}/api/artists/${id}`
+      "https://maulik-art.onrender.com/api/artists/${id}"
     );
 
     fetchArtists();

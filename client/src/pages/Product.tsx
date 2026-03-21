@@ -35,7 +35,7 @@ const Product = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/api/artworks`
+        "https://maulik-art.onrender.com/api/artworks"
       );
       setProducts(data);
       setFiltered(data);

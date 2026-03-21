@@ -16,7 +16,7 @@ const AdminArtworks = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
-  const API = `${import.meta.env.VITE_API_URL}/api/artworks`;
+  const API = "https://maulik-art.onrender.com/api/artworks";
 
   /* ================= Fetch Artworks ================= */
 

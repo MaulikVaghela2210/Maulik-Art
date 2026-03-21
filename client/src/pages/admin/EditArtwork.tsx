@@ -26,7 +26,7 @@ const EditArtwork = () => {
   const fetchArtwork = async () => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/api/artworks/${id}`
+        "https://maulik-art.onrender.com/api/artworks/${id}"
       );
 
       setTitle(data.title);
@@ -42,7 +42,7 @@ const EditArtwork = () => {
   const fetchCategories = async () => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/api/categories`
+        "https://maulik-art.onrender.com/api/categories"
       );
       setCategories(data);
     } catch (error) {
@@ -73,7 +73,7 @@ const EditArtwork = () => {
       }
 
       await axios.put(
-      `${import.meta.env.VITE_API_URL}/api/artworks/${id}`,
+      "https://maulik-art.onrender.com/api/artworks/${id}",
       formData,
       {
         headers: {

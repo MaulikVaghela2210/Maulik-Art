@@ -4,7 +4,7 @@ import type { RevenueData } from "../types/revenue";
 export const getRevenueData = async () => {
 
   const res = await axios.get<RevenueData>(
-    `${import.meta.env.VITE_API_URL}/api/revenue`
+    "https://maulik-art.onrender.com/api/revenue"
   );
 
   return res.data;

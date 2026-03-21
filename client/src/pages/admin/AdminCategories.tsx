@@ -16,7 +16,7 @@ const AdminCategories = () => {
 
   const token = localStorage.getItem("token");
 
-  const API = `${import.meta.env.VITE_API_URL}/api/categories`;
+  const API = "https://maulik-art.onrender.com/api/categories";
 
   // ================= Fetch Categories =================
   const fetchCategories = async () => {

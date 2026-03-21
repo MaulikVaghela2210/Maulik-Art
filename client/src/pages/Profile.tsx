@@ -47,7 +47,7 @@ const Profile = () => {
     try {
 
       const res = await axios.get(
-        `${import.meta.env.VITE_API_URL}/api/users/profile`,
+        "https://maulik-art.onrender.com/api/users/profile",
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -78,7 +78,7 @@ const Profile = () => {
     try {
 
       const res = await axios.get(
-        `${import.meta.env.VITE_API_URL}/api/orders`,
+        "https://maulik-art.onrender.com/api/orders",
         {
           headers:{
             Authorization:`Bearer ${token}`
@@ -106,7 +106,7 @@ const Profile = () => {
     try {
 
       const res = await axios.get(
-        `${import.meta.env.VITE_API_URL}/api/custom-orders`,
+        "https://maulik-art.onrender.com/api/custom-orders",
         {
           headers:{
             Authorization:`Bearer ${token}`
@@ -173,7 +173,7 @@ const Profile = () => {
       }
 
       const res = await axios.put(
-        `${import.meta.env.VITE_API_URL}/api/users/profile`,
+        "https://maulik-art.onrender.com/api/users/profile",
         formData,
         {
           headers: {
@@ -209,7 +209,7 @@ const Profile = () => {
     try {
 
       await axios.put(
-        `${import.meta.env.VITE_API_URL}/api/users/change-password`,
+        "https://maulik-art.onrender.com/api/users/change-password",
         {
           currentPassword,
           newPassword
