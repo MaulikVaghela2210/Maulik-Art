@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://https://${import.meta.env.VITE_API_URL}/api/about";
+const API = `${import.meta.env.VITE_API_URL}/api/about`;
 
 // ================= GET ABOUT =================
 export const getAbout = async () => {

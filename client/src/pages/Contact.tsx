@@ -26,7 +26,7 @@ const handleSubmit = async (e:any) => {
 
 e.preventDefault();
 
-await axios.post("http://https://${import.meta.env.VITE_API_URL}/api/contacts", form);
+await axios.post(`${import.meta.env.VITE_API_URL}/api/contacts`, form);
 
 alert("Message Sent");
 

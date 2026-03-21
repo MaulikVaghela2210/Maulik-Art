@@ -22,7 +22,7 @@ const GalleryDetails = () => {
   useEffect(() => {
     const fetchArtwork = async () => {
       const { data } = await axios.get(
-        `http://https://${import.meta.env.VITE_API_URL}/api/artworks/${id}`
+        `${import.meta.env.VITE_API_URL}/api/artworks/${id}`
       );
       setArtwork(data);
     };

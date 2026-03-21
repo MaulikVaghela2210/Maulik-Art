@@ -15,7 +15,7 @@ const GallerySection = () => {
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get(
-        "http://https://${import.meta.env.VITE_API_URL}/api/artworks"
+        `${import.meta.env.VITE_API_URL}/api/artworks`
       );
       setArtworks(data.slice(0, 4)); // only 4 for home
     };

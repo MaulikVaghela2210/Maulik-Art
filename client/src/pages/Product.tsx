@@ -35,7 +35,7 @@ const Product = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       const { data } = await axios.get(
-        "http://https://${import.meta.env.VITE_API_URL}/api/artworks"
+        `${import.meta.env.VITE_API_URL}/api/artworks`
       );
       setProducts(data);
       setFiltered(data);

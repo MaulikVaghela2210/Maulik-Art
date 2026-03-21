@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { Service } from "../../types/service";
 
-const API = "http://https://${import.meta.env.VITE_API_URL}/api/services";
+const API = ${import.meta.env.VITE_API_URL}/api/services";
 
 // GET ALL
 export const getAllServices = async (): Promise<{ data: Service[] }> => {

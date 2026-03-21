@@ -37,7 +37,7 @@ const TeamSection = () => {
   useEffect(() => {
     const fetchArtists = async () => {
       try {
-        const res = await axios.get("http://https://${import.meta.env.VITE_API_URL}/api/artists");
+        const res = await axios.get(${import.meta.env.VITE_API_URL}/api/artists");
         setArtists(res.data);
       } catch (error) {
         console.log("Error fetching artists", error);

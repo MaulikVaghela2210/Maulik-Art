@@ -58,7 +58,7 @@ const Checkout = () => {
     try {
 
       await axios.post(
-        "http://https://${import.meta.env.VITE_API_URL}/api/orders",
+        `${import.meta.env.VITE_API_URL}/api/orders`,
         orderData
       );
 

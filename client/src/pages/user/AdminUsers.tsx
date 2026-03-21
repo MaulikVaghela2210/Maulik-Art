@@ -21,7 +21,7 @@ const AdminUsers = () => {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://https://${import.meta.env.VITE_API_URL}/api/users",
+        ${import.meta.env.VITE_API_URL}/api/users",
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -53,7 +53,7 @@ const AdminUsers = () => {
     const token = localStorage.getItem("token");
 
     await axios.delete(
-      `http://https://${import.meta.env.VITE_API_URL}/api/users/${id}`,
+      `${import.meta.env.VITE_API_URL}/api/users/${id}`,
       {
         headers: {
           Authorization: `Bearer ${token}`

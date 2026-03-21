@@ -23,7 +23,7 @@ const AdminOrders = () => {
   const [orders, setOrders] = useState<Order[]>([]);
 
   const fetchOrders = async () => {
-    const res = await axios.get("http://https://${import.meta.env.VITE_API_URL}/api/orders");
+    const res = await axios.get("${import.meta.env.VITE_API_URL}/api/orders");
     setOrders(res.data);
   };
 
@@ -35,7 +35,7 @@ const AdminOrders = () => {
 
     if (!window.confirm("Delete this order?")) return;
 
-    await axios.delete(`http://https://${import.meta.env.VITE_API_URL}/api/orders/${id}`);
+    await axios.delete(`${import.meta.env.VITE_API_URL}/api/orders/${id}`);
 
     fetchOrders();
 
@@ -43,7 +43,7 @@ const AdminOrders = () => {
 
   const updateStatus = async (id: string, status: string) => {
 
-    await axios.put(`http://https://${import.meta.env.VITE_API_URL}/api/orders/${id}`, { status });
+    await axios.put(`${import.meta.env.VITE_API_URL}/api/orders/${id}`, { status });
 
     fetchOrders();
 

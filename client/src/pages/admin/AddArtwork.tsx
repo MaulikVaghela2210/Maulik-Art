@@ -22,7 +22,7 @@ const AddArtwork = () => {
     const fetchCategories = async () => {
       try {
         const { data } = await axios.get(
-          "http://https://${import.meta.env.VITE_API_URL}/api/categories"
+          `${import.meta.env.VITE_API_URL}/api/categories`
         );
         setCategories(data);
       } catch (error) {
@@ -51,7 +51,7 @@ const AddArtwork = () => {
       formData.append("image", image);
 
       await axios.post(
-        "http://https://${import.meta.env.VITE_API_URL}/api/artworks",
+        `${import.meta.env.VITE_API_URL}/api/artworks`,
         formData,
         {
           headers: {

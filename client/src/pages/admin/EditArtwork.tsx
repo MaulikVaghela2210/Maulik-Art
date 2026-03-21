@@ -26,7 +26,7 @@ const EditArtwork = () => {
   const fetchArtwork = async () => {
     try {
       const { data } = await axios.get(
-        `http://https://${import.meta.env.VITE_API_URL}/api/artworks/${id}`
+        `${import.meta.env.VITE_API_URL}/api/artworks/${id}`
       );
 
       setTitle(data.title);
@@ -42,7 +42,7 @@ const EditArtwork = () => {
   const fetchCategories = async () => {
     try {
       const { data } = await axios.get(
-        "http://https://${import.meta.env.VITE_API_URL}/api/categories"
+        `${import.meta.env.VITE_API_URL}/api/categories`
       );
       setCategories(data);
     } catch (error) {
@@ -73,7 +73,7 @@ const EditArtwork = () => {
       }
 
       await axios.put(
-      `http://https://${import.meta.env.VITE_API_URL}/api/artworks/${id}`,
+      `${import.meta.env.VITE_API_URL}/api/artworks/${id}`,
       formData,
       {
         headers: {
