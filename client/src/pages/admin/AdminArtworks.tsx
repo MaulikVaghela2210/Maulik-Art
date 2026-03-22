@@ -52,11 +52,11 @@ const AdminArtworks = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`${API}/${id}`, {
+      await axios.delete(`${API}/${_id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
-      setArtworks((prev) => prev.filter((art) => art._id !== id));
+      setArtworks((prev) => prev.filter((art) => art._id !== _id));
 
     } catch (error) {
       console.error("Delete Error:", error);
