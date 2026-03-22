@@ -44,7 +44,7 @@ const AdminUsers = () => {
   }, []);
 
   // DELETE USER
-  const deleteUser = async (id: string) => {
+  const deleteUser = async (_id: string) => {
 
     const confirm = window.confirm("Delete this user?");
 

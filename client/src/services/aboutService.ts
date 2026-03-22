@@ -17,7 +17,7 @@ export const createAbout = async (data: FormData) => {
 };
 
 // ================= UPDATE ABOUT =================
-export const updateAbout = async (id: string, data: FormData) => {
+export const updateAbout = async (_id: string, data: FormData) => {
 
   return axios.put(
     `${API}/${id}`,
@@ -32,6 +32,6 @@ export const updateAbout = async (id: string, data: FormData) => {
 };
 
 // ================= DELETE ABOUT =================
-export const deleteAbout = async (id: string) => {
+export const deleteAbout = async (_id: string) => {
   return axios.delete(`${API}/${id}`);
 };

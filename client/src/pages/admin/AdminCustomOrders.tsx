@@ -43,7 +43,7 @@ const AdminCustomOrders = () => {
   }, []);
 
   // Delete Order
-  const deleteOrder = async (id: string) => {
+  const deleteOrder = async (_id: string) => {
 
     if (!confirm("Delete this order?")) return;
 
@@ -64,7 +64,7 @@ const AdminCustomOrders = () => {
   };
 
   // Update Status
-  const updateStatus = async (id: string, status: string) => {
+  const updateStatus = async (_id: string, status: string) => {
 
     try {
 

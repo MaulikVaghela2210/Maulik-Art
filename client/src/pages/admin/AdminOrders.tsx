@@ -31,7 +31,7 @@ const AdminOrders = () => {
     fetchOrders();
   }, []);
 
-  const deleteOrder = async (id: string) => {
+  const deleteOrder = async (_id: string) => {
 
     if (!window.confirm("Delete this order?")) return;
 
@@ -41,7 +41,7 @@ const AdminOrders = () => {
 
   };
 
-  const updateStatus = async (id: string, status: string) => {
+  const updateStatus = async (_id: string, status: string) => {
 
     await axios.put("https://maulik-art.onrender.com/api/orders/${id}", { status });
 

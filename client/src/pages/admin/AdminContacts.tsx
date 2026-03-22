@@ -26,7 +26,7 @@ const AdminContacts = () => {
     fetchContacts();
   }, []);
 
-  const deleteContact = async (id: string) => {
+  const deleteContact = async (_id: string) => {
 
     await axios.delete("https://maulik-art.onrender.com/api/contacts/${id}");
 

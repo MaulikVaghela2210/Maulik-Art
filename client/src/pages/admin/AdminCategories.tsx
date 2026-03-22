@@ -91,7 +91,7 @@ const AdminCategories = () => {
   };
 
   // ================= Delete Category =================
-  const handleDelete = async (id: string) => {
+  const handleDelete = async (_id: string) => {
 
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this category?"

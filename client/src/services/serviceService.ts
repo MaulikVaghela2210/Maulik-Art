@@ -10,10 +10,10 @@ export const createService = async (data: any) => {
   return axios.post(API, data);
 };
 
-export const updateService = async (id: string, data: any) => {
+export const updateService = async (_id: string, data: any) => {
   return axios.put(`${API}/${id}`, data);
 };
 
-export const deleteService = async (id: string) => {
+export const deleteService = async (_id: string) => {
   return axios.delete(`${API}/${id}`);
 };

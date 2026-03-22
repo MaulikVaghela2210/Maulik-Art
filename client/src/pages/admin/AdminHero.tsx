@@ -90,7 +90,7 @@ const AdminHero = () => {
 
   };
 
-  const deleteSlide = async (id: string) => {
+  const deleteSlide = async (_id: string) => {
 
     await fetch("https://maulik-art.onrender.com/api/hero/${id}", {
       method: "DELETE",

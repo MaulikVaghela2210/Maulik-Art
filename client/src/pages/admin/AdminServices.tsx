@@ -18,7 +18,7 @@ const AdminServices = () => {
     fetchServices();
   }, []);
 
-  const handleDelete = async (id: string) => {
+  const handleDelete = async (_id: string) => {
 
     if (!window.confirm("Are you sure you want to delete this service?")) return;
 

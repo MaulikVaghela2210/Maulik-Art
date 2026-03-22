@@ -108,7 +108,7 @@ const AdminArtists = () => {
 
   };
 
-  const deleteArtist = async (id: string) => {
+  const deleteArtist = async (_id: string) => {
 
     await axios.delete(
       "https://maulik-art.onrender.com/api/artists/${id}"
