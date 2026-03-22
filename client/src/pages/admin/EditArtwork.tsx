@@ -7,8 +7,10 @@ interface Category {
   name: string;
 }
 
+const API = "https://maulik-art.onrender.com/api";
+
 const EditArtwork = () => {
-  const { id } = useParams();
+  const { _id } = useParams<{ _id: string }>(); // ✅ proper typing
   const navigate = useNavigate();
 
   const [title, setTitle] = useState("");
@@ -22,12 +24,12 @@ const EditArtwork = () => {
 
   const token = localStorage.getItem("token");
 
-  // Fetch Single Artwork
+  // ================= Fetch Single Artwork =================
   const fetchArtwork = async () => {
+    if (!_id) return;
+
     try {
-      const { data } = await axios.get(
-        "https://maulik-art.onrender.com/api/artworks/${id}"
-      );
+      const { data } = await axios.get(`${API}/artworks/${_id}`);
 
       setTitle(data.title);
       setDescription(data.description);
@@ -38,12 +40,10 @@ const EditArtwork = () => {
     }
   };
 
-  // Fetch Categories
+  // ================= Fetch Categories =================
   const fetchCategories = async () => {
     try {
-      const { data } = await axios.get(
-        "https://maulik-art.onrender.com/api/categories"
-      );
+      const { data } = await axios.get(`${API}/categories`);
       setCategories(data);
     } catch (error) {
       console.error("Fetch categories error:", error);
@@ -55,11 +55,13 @@ const EditArtwork = () => {
   useEffect(() => {
     fetchArtwork();
     fetchCategories();
-  }, []);
+  }, [_id]);
 
-  // Submit Update
+  // ================= Submit Update =================
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!_id) return;
 
     try {
       const formData = new FormData();
@@ -72,19 +74,16 @@ const EditArtwork = () => {
         formData.append("image", image);
       }
 
-      await axios.put(
-      "https://maulik-art.onrender.com/api/artworks/${id}",
-      formData,
-      {
+      await axios.put(`${API}/artworks/${_id}`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data"
+          "Content-Type": "multipart/form-data",
         },
-      }
-);
+      });
 
       alert("Artwork updated successfully!");
       navigate("/admin/artworks");
+
     } catch (error) {
       console.error("Update error:", error);
       alert("Update failed");
@@ -131,11 +130,13 @@ const EditArtwork = () => {
           required
         >
           <option value="">Select Category</option>
+
           {categories.map((cat) => (
             <option key={cat._id} value={cat._id}>
               {cat.name}
             </option>
           ))}
+
         </select>
 
         <input
