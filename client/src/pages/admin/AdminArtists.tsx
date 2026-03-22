@@ -90,7 +90,7 @@ const AdminArtists = () => {
     if (editingId) {
 
       await axios.put(
-        `https://maulik-art.onrender.com/api/artists/${editingId}`,
+        "https://maulik-art.onrender.com/api/artists/${editingId}",
         formData
       );
 
@@ -111,7 +111,7 @@ const AdminArtists = () => {
   const deleteArtist = async (_id: string) => {
 
     await axios.delete(
-      `https://maulik-art.onrender.com/api/artists/${_id}`
+      "https://maulik-art.onrender.com/api/artists/${_id}"
     );
 
     fetchArtists();
