@@ -101,14 +101,14 @@ const AdminCategories = () => {
 
     try {
 
-      await axios.delete(`${API}/${id}`, {
+      await axios.delete(`${API}/${_id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
 
       setCategories((prev) =>
-        prev.filter((cat) => cat._id !== id)
+        prev.filter((cat) => cat._id !== _id)
       );
 
     } catch (error) {

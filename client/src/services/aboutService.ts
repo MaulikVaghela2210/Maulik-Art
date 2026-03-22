@@ -20,7 +20,7 @@ export const createAbout = async (data: FormData) => {
 export const updateAbout = async (_id: string, data: FormData) => {
 
   return axios.put(
-    `${API}/${id}`,
+    `${API}/${_id}`,
     data,
     {
       headers: {
@@ -33,5 +33,5 @@ export const updateAbout = async (_id: string, data: FormData) => {
 
 // ================= DELETE ABOUT =================
 export const deleteAbout = async (_id: string) => {
-  return axios.delete(`${API}/${id}`);
+  return axios.delete(`${API}/${_id}`);
 };

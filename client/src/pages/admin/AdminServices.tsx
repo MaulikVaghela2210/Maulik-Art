@@ -22,7 +22,7 @@ const AdminServices = () => {
 
     if (!window.confirm("Are you sure you want to delete this service?")) return;
 
-    await deleteService(id);
+    await deleteService(_id);
     fetchServices();
 
   };
