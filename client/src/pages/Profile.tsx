@@ -331,16 +331,12 @@ const Profile = () => {
               <div className="flex items-center gap-6">
 
                 {preview ? (
-
                   <img
                     src={preview}
                     className="w-28 h-28 rounded-full object-cover border"
                   />
-
                 ) : (
-
                   <FaUserCircle className="text-[110px] text-gray-400" />
-
                 )}
 
                 <input

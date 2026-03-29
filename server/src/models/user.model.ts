@@ -40,7 +40,7 @@ const userSchema = new Schema<IUser>(
 
     image: {
       type: String,
-      default: "https://i.pravatar.cc/150"
+      default: ""
     }
 
   },
