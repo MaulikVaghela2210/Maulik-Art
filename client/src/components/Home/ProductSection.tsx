@@ -18,7 +18,7 @@ const ProductSection = () => {
       const { data } = await axios.get(
         "https://maulik-art.onrender.com/api/artworks"
       );
-      setProducts(data.slice(0, 4));
+      setProducts(data.slice(0, 12));
     };
 
     fetchLatest();
