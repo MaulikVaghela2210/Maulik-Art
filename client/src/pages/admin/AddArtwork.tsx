@@ -8,6 +8,9 @@ interface Category {
 }
 
 const AddArtwork = () => {
+
+  const navigate = useNavigate(); // ✅ FIXED (Top level)
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -17,7 +20,7 @@ const AddArtwork = () => {
 
   const token = localStorage.getItem("token");
 
-  // ================= Fetch Categories =================
+  // Fetch Categories
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -33,7 +36,7 @@ const AddArtwork = () => {
     fetchCategories();
   }, []);
 
-  // ================= Submit =================
+  // Submit
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -61,10 +64,9 @@ const AddArtwork = () => {
         }
       );
 
-      const navigate = useNavigate();
-
       alert("Artwork Added Successfully 🚀");
-      navigate("/admin/artworks");
+
+      navigate("/admin/artworks"); // ✅ now works
 
       // Reset
       setTitle("");
@@ -72,6 +74,7 @@ const AddArtwork = () => {
       setPrice("");
       setCategory("");
       setImage(null);
+
     } catch (error) {
       console.error("Add Artwork Error:", error);
       alert("Error adding artwork");
@@ -86,74 +89,59 @@ const AddArtwork = () => {
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded-2xl shadow"
       >
-        {/* Title */}
-        <div className="mb-4">
-          <label className="block mb-1 font-medium">Title</label>
-          <input
-            type="text"
-            className="w-full border p-2 rounded-lg"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
-        </div>
 
-        {/* Description */}
-        <div className="mb-4">
-          <label className="block mb-1 font-medium">Description</label>
-          <textarea
-            className="w-full border p-2 rounded-lg"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </div>
+        <input
+          type="text"
+          placeholder="Title"
+          className="w-full border p-2 rounded-lg mb-4"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+        />
 
-        {/* Price */}
-        <div className="mb-4">
-          <label className="block mb-1 font-medium">Price</label>
-          <input
-            type="number"
-            className="w-full border p-2 rounded-lg"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-            required
-          />
-        </div>
+        <textarea
+          placeholder="Description"
+          className="w-full border p-2 rounded-lg mb-4"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
 
-        {/* Category Dropdown */}
-        <div className="mb-4">
-          <label className="block mb-1 font-medium">Category</label>
-          <select
-            className="w-full border p-2 rounded-lg"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            required
-          >
-            <option value="">Select Category</option>
-            {categories.map((cat) => (
-              <option key={cat._id} value={cat._id}>
-                {cat.name}
-              </option>
-            ))}
-          </select>
-        </div>
+        <input
+          type="number"
+          placeholder="Price"
+          className="w-full border p-2 rounded-lg mb-4"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+          required
+        />
 
-        {/* Image */}
-        <div className="mb-6">
-          <label className="block mb-1 font-medium">Image</label>
-          <input
-            type="file"
-            className="w-full"
-            onChange={(e) =>
-              setImage(e.target.files ? e.target.files[0] : null)
-            }
-            required
-          />
-        </div>
+        <select
+          className="w-full border p-2 rounded-lg mb-4"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          required
+        >
+          <option value="">Select Category</option>
+          {categories.map((cat) => (
+            <option key={cat._id} value={cat._id}>
+              {cat.name}
+            </option>
+          ))}
+        </select>
+
+        <input
+          type="file"
+          className="w-full mb-4"
+          onChange={(e) =>
+            setImage(e.target.files ? e.target.files[0] : null)
+          }
+          required
+        />
 
         <button className="bg-black text-white px-6 py-2 rounded-xl">
           Add Artwork
         </button>
+
       </form>
     </div>
   );
